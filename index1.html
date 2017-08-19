@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="500px" height="500px"></canvas>
+  <div id="start" class="button">开始</div>
+  <div id="pause" class="button">暂停</div>
+  <script type="text/javascript">
+    // var i = 1000;
+    // function A() {
+    //   function B(){
+    //     console.log('b');
+    //     setTimeout('B()', i)
+    //   }
+    //   B();
+    // }
+    // A();
+
+    // var i=0;
+    // function a(){
+    // document.body.innerHTML=i
+    // i++
+    // setTimeout('a()',1000+i*1000);
+    // }
+    // a();
+    var flag = false;
+    var i = 0;
+
+    var startButton = document.getElementById("start");
+    var stopButton = document.getElementById("pause");
+
+    startButton.addEventListener("click", function(){
+      flag = true;
+    })
+
+    stopButton.addEventListener("click", function(){
+      flag = false;
+    })
+    
+    async function test() {
+      while(!flag){
+        console.log('Hello')
+        await sleep(1000)
+        console.log(i++);
+        console.log('world!')
+      }
+      
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    // while(!flag){
+    //   console.log('*');
+    //   test();
+      
+    // }
+
+    test()
+
+
+    // var c=document.getElementById("myCanvas");
+    // var cxt=c.getContext("2d");
+    // cxt.fillStyle="black";
+    // cxt.fillRect(0,0,500,500);
+    // cxt.fillStyle="white";
+    // cxt.fillRect(0,0,100,100);
+    // cxt.fillStyle="black";
+    // cxt.fillRect(0,0,100,100);
+
+    // cxt.strokeStyle = "green";
+    // cxt.strokeRect(200,200,100,100);
+    // cxt.strokeStyle = "yellow";
+    // cxt.strokeRect(200,200,100,100);
+  </script>
+</body>
+</html>
