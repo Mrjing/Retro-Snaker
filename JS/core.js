@@ -439,7 +439,17 @@ function randomFood(cxt, foods){
   if(foods.length < 8){
     var x = Math.floor(Math.random()*25);
     var y = Math.floor(Math.random()*25);
-    var type = Math.floor(Math.random()*3);
+    var randomNum = Math.floor(Math.random()*6);
+    var type;
+    if(randomNum == 0){
+      type = 2;
+    }
+    if(randomNum >= 1 && randomNum <= 2){
+      type = 1;
+    }
+    if(randomNum >= 3 && randomNum <= 5){
+      type = 0;
+    }
 
     //判断食物数组中是否有位置相同项，有的话重新生成，直到生成不相同的项
     var length = foods.length;
@@ -457,7 +467,16 @@ function randomFood(cxt, foods){
       }else{
         x = Math.floor(Math.random()*25);
         y = Math.floor(Math.random()*25);
-        type = Math.floor(Math.random()*3);
+        randomNum = Math.floor(Math.random()*6);
+        if(randomNum == 0){
+          type = 0;
+        }
+        if(randomNum >= 1 && randomNum <= 2){
+          type = 1;
+        }
+        if(randomNum >= 3 && randomNum <= 5){
+          type = 2;
+        }
         foodFlag = false;
       }
     }
